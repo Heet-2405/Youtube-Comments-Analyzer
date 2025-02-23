@@ -1,50 +1,54 @@
-Summarry
+--> Summary
 
 --> Overview
-The SummarEase project is a web application that retrieves comments from a YouTube video, analyzes their sentiment, and provides a concise summary using Google Gemini AI. The application also extracts video and channel details while visualizing sentiment analysis results.
+SummarEase is a web application designed to analyze YouTube video comments by retrieving them, performing sentiment analysis, and generating a meaningful summary using Google Gemini AI. Additionally, the application fetches essential video and channel details while providing insightful data visualizations for sentiment trends.
 
---> Features 
--Extracts video ID from a YouTube link.
+--> Features
+- Extracts video ID from a YouTube link.
+- Fetches and stores comments in a CSV file.
+- Performs sentiment analysis using "Multilingual BERT (mBERT)".
+- Summarizes comments using "Google Gemini AI".
+- Retrieves video statistics, including views, likes, and comment count.
+- Extracts YouTube channel details, such as subscriber count, channel creation date, and description.
+- Displays sentiment analysis results using bar and pie charts.
+- User-friendly web interface powered by "Streamlit".
 
--Fetches and stores comments in a CSV file. 
+--> Why We Chose These Models
 
--Performs sentiment analysis using mBERT (Multilingual BERT). 
+-> Multilingual BERT (mBERT) for Sentiment Analysis
+For sentiment analysis, we have chosen "Multilingual BERT (mBERT)", a transformer-based model trained on 104 languages with "Wikipedia data". This makes it highly effective for analyzing YouTube comments, which often appear in multiple languages. mBERT provides the following benefits:
 
--Summarizes comments using Google Gemini AI. 
+- Language Versatility: Unlike traditional sentiment models trained only in English, mBERT can process diverse languages, making it ideal for global YouTube content.
+- Contextual Understanding: Unlike bag-of-words approaches, mBERT leverages deep contextual embeddings to understand sentiment in a more nuanced way.
+- Higher Accuracy: Compared to older models like Naïve Bayes and LSTMs, mBERT provides better sentiment classification accuracy due to its deep learning architecture.
+- Scalability: mBERT efficiently handles large datasets, making it suitable for analyzing thousands of YouTube comments without significant performance loss.
 
--Fetches video details like views, likes, and comments. 
+While models like "VADER" and "TextBlob" work well for English sentiment analysis, they lack multilingual capabilities, making them less effective for global YouTube videos. Similarly, "GPT-based models" can be used for sentiment analysis but are often "computationally expensive" and may require extensive fine-tuning for multilingual understanding.
 
--Retrieves YouTube channel information, including subscriber count and creation date. 
+--> Google Gemini AI for Comment Summarization
+For comment summarization, we leverage "Google Gemini AI", a powerful multimodal model trained to generate concise yet informative summaries. Google Gemini AI was chosen for:
 
--Provides data visualization with bar charts and pie charts. 
+- Advanced NLP Capabilities: It understands large text inputs efficiently and generates structured, coherent summaries.
+- Context-Aware Summarization: Unlike rule-based summarization techniques, Gemini AI retains the overall meaning and context of the comments.
+- Handling Large Text Inputs: Unlike traditional summarization techniques like TF-IDF, Gemini AI can analyze a vast amount of text without losing key information.
+- Multi-Paragraph Summaries: The model is instructed to generate summaries in at least two to three paragraphs, each containing 5 to 10 lines, ensuring a comprehensive representation of the comments.
 
--User-friendly web interface built with Streamlit. 
+Compared to OpenAI's GPT models, Gemini AI is optimized for large-scale summarization while maintaining efficiency and lower computational costs.
 
+--> Setup & Installation
 
---> Setup & Installation 🛠
+1. Clone the Repository
 
- 1. Clone the Repository
 git clone https://github.com/Heet-2405/Youtube-Comments-Analyzer.git
 
- 2. Install Required Dependencies
-pip install -r requirements.txt
+2. Set Up API Keys
+- YouTube API Key: Obtain it from the Google Cloud Console and replace the placeholder in 'YoutubeCommentScrapper.py'.
+- Gemini AI API Key: Get it from Google AI Studio and add it to 'Sentiment_Analysis.py'.
 
- 3. Set Up API Keys
+--> Running the Application
 
-- YouTube API Key:
-Obtain it from the Google Cloud Console and replace the placeholder in YoutubeCommentScrapper.py
+streamlit run app.py
 
-- Gemini AI API Key:
-Get it from Google AI Studio and add it to Sentiment_Analysis.py.
-
-
---> Running the Application 
-
--streamlit run app.py
-
--Open the browser
-
--Enter a YouTube link in the sidebar to fetch comments and analyze sentiment.
-
-
+--> Conclusion
+SummarEase provides a powerful yet easy-to-use platform for analyzing YouTube comments, offering detailed sentiment insights and AI-powered summarization. By leveraging "mBERT" for multilingual sentiment analysis and "Google Gemini AI" for summarization, this project ensures high accuracy, efficiency, and usability across diverse YouTube content. 
 
