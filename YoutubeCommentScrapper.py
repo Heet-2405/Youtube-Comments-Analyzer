@@ -64,3 +64,48 @@ def get_channel_info(channel_id):
     except HttpError as error:
         print(f'YouTube API Error: {error}')
         return None
+    
+import csv
+def save_video_comments_to_csv(video_id):
+    """Fetches comments from a YouTube video and saves them to CSV."""
+    comments = []
+    
+    try:
+        results = youtube.commentThreads().list(
+            part='snippet',
+            videoId=video_id,
+            textFormat='plainText',
+            maxResults=100
+        ).execute()
+    
+        while results:
+            for item in results.get('items', []):
+                comment = item['snippet']['topLevelComment']['snippet']['textDisplay']
+                username = item['snippet']['topLevelComment']['snippet']['authorDisplayName']
+                comments.append([username, comment])
+
+            if 'nextPageToken' in results:
+                results = youtube.commentThreads().list(
+                    part='snippet',
+                    videoId=video_id,
+                    textFormat='plainText',
+                    maxResults=100,
+                    pageToken=results['nextPageToken']
+                ).execute()
+            else:
+                break
+    except HttpError as error:
+        print(f'YouTube API Error: {error}')
+        return None
+    
+    if not comments:
+        print("Warning: No comments found.")
+        return None
+
+    filename = f"{video_id}.csv"
+    with open(filename, 'w', newline='', encoding='utf-8') as csvfile:
+        writer = csv.writer(csvfile)
+        writer.writerow(['Username', 'Comment'])
+        writer.writerows(comments)
+    
+    return filename
