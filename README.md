@@ -26,12 +26,7 @@ For sentiment analysis, we have chosen "Multilingual BERT (mBERT)", a transforme
 While models like "VADER" and "TextBlob" work well for English sentiment analysis, they lack multilingual capabilities, making them less effective for global YouTube videos. Similarly, "GPT-based models" can be used for sentiment analysis but are often "computationally expensive" and may require extensive fine-tuning for multilingual understanding.
 
 --> Google Gemini AI for Comment Summarization
-For comment summarization, we leverage "Google Gemini AI", a powerful multimodal model trained to generate concise yet informative summaries. Google Gemini AI was chosen for:
-
-- Advanced NLP Capabilities: It understands large text inputs efficiently and generates structured, coherent summaries.
-- Context-Aware Summarization: Unlike rule-based summarization techniques, Gemini AI retains the overall meaning and context of the comments.
-- Handling Large Text Inputs: Unlike traditional summarization techniques like TF-IDF, Gemini AI can analyze a vast amount of text without losing key information.
-- Multi-Paragraph Summaries: The model is instructed to generate summaries in at least two to three paragraphs, each containing 5 to 10 lines, ensuring a comprehensive representation of the comments.
+For comment summarization, we leverage "Google Gemini AI", a powerful multimodal model trained to generate concise yet informative summaries.
 
 Compared to OpenAI's GPT models, Gemini AI is optimized for large-scale summarization while maintaining efficiency and lower computational costs.
 
