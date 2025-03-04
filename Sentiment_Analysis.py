@@ -38,7 +38,7 @@ def summarize_comments(csv_file):
 
     prompt = f"""Summarize the following YouTube comments into a minimum of 2-3 paragraphs but not indicats paragraph number. The summary should capture the overall sentiment, key themes, and main opinions expressed in the comments. Each paragraph should be at least 5-10 lines long and should provide a balanced view of both positive and negative feedback. Highlight any common trends, recurring topics, or unique insights shared by users.\n\n{comments}"""
 
-    model = genai.GenerativeModel("gemini-pro")
+    model = genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content(prompt)
 
     return response.text if response else "No summary generated."
