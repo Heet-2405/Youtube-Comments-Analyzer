@@ -14,8 +14,8 @@ def delete_non_matching_csv_files(directory_path, video_id):
 st.set_page_config(page_title="Sentiment Analysis", layout="centered")
 
 # **Project Title and Team Name**
-st.markdown("<h1 style='text-align: center;'>YT Sentiment Analysis</h1>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align: center; color: grey;'>By Team "CodeBros"</h3>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>SummarEase: Youtube Sentiment Analyzer</h1>", unsafe_allow_html=True)
+st.markdown('<h3 style="text-align: center; color: grey;">By Team "CodeBros"</h3>', unsafe_allow_html=True)
 
 # Hide Streamlit Style Elements
 hide_st_style = """
